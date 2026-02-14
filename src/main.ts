@@ -4,7 +4,7 @@ import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  app.enableCors(); // for the demo version. allow all origins. In production, you should specify the allowed origins.
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
