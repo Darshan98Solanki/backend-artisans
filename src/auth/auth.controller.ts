@@ -29,4 +29,13 @@ export class AuthController {
   getProfile(@Request() req) {
     return req.user;
   }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('verify')
+  verify(@Request() req) {
+    return {
+      valid: true,
+      user: req.user,
+    };
+  }
 }
